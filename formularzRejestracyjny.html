@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pl-PL"><head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Formularz</title>
+    <style>
+     @font-face
+     {
+          font-family: "Spotify";
+          src: url(fonts/GothamMedium.ttf);
+     }
+     @font-face
+     {
+          font-family: "SpotifyLight";
+          src: url(fonts/GothamLight.ttf);
+     }
+     body 
+     {
+          font-family: SpotifyLight;
+          background-image: linear-gradient(45deg, rgb(74, 195, 252), rgb(127, 80, 255));;
+          text-align: left;
+     }
+     fieldset 
+     {
+          margin: auto;
+          background-image: linear-gradient(45deg, rgb(162, 226, 255), rgb(180, 153, 255));;
+          border-radius: 20px;
+          box-shadow:0 0 10px #000000;
+     }
+     input
+     {
+          border-radius: 5px;
+     }
+     h1
+     {
+          text-align: center;
+          font-family: Spotify;
+     }
+     h2
+     {
+          text-align: center;
+          font-family: Spotify;
+     }
+     #footer
+     {
+          text-align: center;
+     }
+     select
+     {
+          background-color: #d9f6ff;
+     }
+     input
+     {
+          background-color: #e8faff;
+     }
+     option
+     {
+          background-color: #e8faff;
+     }
+    </style>
+</head>
+<body>
+     <h1>Formularz rejestracyjny:</h1>
+    
+<fieldset style="width: 500px;"> 
+     <form>
+          Podaj imie: <input type="text" id="imie"><br>
+<br>
+          Podaj nazwisko: <input type="text" id="nazwisko"><br>
+<br>
+    Wybierz płeć<br>
+    <input type="radio" name="plec" id="k" value="kobieta">Kobieta
+    <input type="radio" name="plec" id="m" value="mężczyzna">Mężczyzna
+<br>
+     Podaj wiek:<br>
+     <input type="number" id="wiek"><br>
+<br>
+     Podaj adres e-mail:<br>
+     <input type="text" id="adres"><br>
+<br>
+     
+          Wybierz wykształcenie:<br>
+          <input type="radio" id="podstawowe">Podstawowe<br>
+          <input type="radio" id="srednie">Średnie<br>
+          <input type="radio" id="wyzsze">Wyższe<br>
+     </form>
+<br>
+     Wybierz język:<br>
+     <select id="jezyk" multiple>
+          <option value="Język angielski" id="angielski">Język angielski</option>
+          <option value="Język polski" id="polski">Język polski</option>
+          <option value="Język francuski" id="francuski">Język francuski</option>
+          <option value="Język włoski" id="wloski">Język włoski</option>
+          <option value="Język rosyjski" id="rosyjski">Język rosyjski</option>
+          <option value="Język hiszpański" id="hiszpanski">Język hiszpański</option>
+     </select><br>
+<br>
+<div id = "zaint"></div>
+     Wybierz zainteresowania:<br>
+          <input type="checkbox" value="zainteresowanie" id="motoryzacja"> Motoryzacja<br>
+          <input type="checkbox" value="zainteresowanie" id="sport"> Sport<br>
+          <input type="checkbox" value="zainteresowanie" id="muzyka"> Muzyka<br>
+          <input type="checkbox" value="zainteresowanie" id="taniec"> Taniec<br>
+          <input type="checkbox" value="zainteresowanie" id="gry"> Gry komputerowe<br>
+          <input type="checkbox" value="zainteresowanie" id="inne"> Inne (podaj jakie): <input type="text" id="podajInne">
+</div>
+     <br>
+<br>
+     Wpisz swoje uwagi:<br>
+     <input type="text" style="height: 100px; width: 400px;" id="uwagi"><br>     
+<br>
+     <input type="checkbox" id="zgoda" required>Zgadzam się na przetwarzanie moich danych osobowych<br>
+<br>
+     <input type="button" value="Wyslij" onclick="wyslij()">
+     <input type="reset" value="Wyczyść">
+
+</fieldset>
+<br>
+
+    <h2>Podsumowanie twoich danych:</h2>
+     <div id = "footer">
+          <div id="i">Twoje imie to: </div>
+           <div id="n">Twoje nazwisko to: </div>
+           <div id="p">Twoja płeć: </div>
+           <div id="u">Twój wiek to: </div>
+           <div id="y">Twój e-mail to: </div>
+           <div id="w">Twoje wykształcenie: </div>
+           <div id="j">Wybrany język: </div>
+           <div id="z">Twoje zainteresowania: </div>
+           <div id="t">Twoje uwagi: </div>
+           <div id="r">Zgoda na przetwarzanie danych: </div> 
+     </div> 
+<script>
+    function wyslij()
+    {
+        const value = document.getElementById("imie").value;
+        const element = document.getElementById("i");
+        element.innerText = `Twoje imie to: ${value}`;
+
+        const value1 = document.getElementById("nazwisko").value;
+        const element1 = document.getElementById("n");
+        element1.innerText = `Twoje nazwisko to: ${value1}`;
+        
+        const mezczyzna = document.getElementById("m");
+        const kobieta = document.getElementById("k");
+
+        if (m.checked)
+        {
+          const element2 = document.getElementById("p");
+          element2.innerText = `Twoja płeć: Mężczyzna`;
+        }
+        if (k.checked)
+        {
+          const element2 = document.getElementById("p");
+          element2.innerText = `Twoja płeć: Kobieta`;
+        }
+
+        const value3 = document.getElementById("wiek").value;
+        const element3 = document.getElementById("u");
+        element3.innerText = `Twój wiek to: ${value3}`;
+        
+        const value4 = document.getElementById("adres").value;
+        const element4 = document.getElementById("y");
+        element4.innerText = `Twój e-mail to: ${value4}`;
+        
+        const podstawowe = document.getElementById("podstawowe");
+        const srednie = document.getElementById("srednie");
+        const wyzsze = document.getElementById("wyzsze");
+
+        if (podstawowe.checked)
+        {
+          const element5 = document.getElementById("w");
+          element5.innerText = `Twoje wykształcenie: Podstawowe`;
+        }
+  
+        if (srednie.checked) 
+        {
+          const element5 = document.getElementById("w");
+          element5.innerText = `Twoje wykształcenie: Średnie`;
+        }
+  
+        if (wyzsze.checked) 
+        {
+          const element5 = document.getElementById("w");
+          element5.innerText = `Twoje wykształcenie: Wyższe`;
+        }
+
+        
+        let text = "Wybrany język:";
+      
+      const angielski = document.getElementById("angielski");
+      const polski = document.getElementById("polski");
+      const hiszpanski = document.getElementById("hiszpanski");
+      const francuski = document.getElementById("francuski");
+      const rosyjski = document.getElementById("rosyjski");
+      const wloski = document.getElementById("wloski");
+      
+      if (angielski.selected)
+      {
+          text += ` ${angielski.value}`;
+      }
+      if (wloski.selected)
+      {
+          text += ` ${wloski.value}`;
+      }
+      if (polski.selected)
+      {
+          text += ` ${polski.value}`;
+      }
+      if (hiszpanski.selected)
+      {
+          text += ` ${hiszpanski.value}`;
+      }
+      if (francuski.selected)
+      {
+          text += ` ${francuski.value}`;
+      }
+      if (rosyjski.selected)
+      {
+          text += ` ${rosyjski.value}`;
+      }
+      
+      const element6 = document.getElementById("j");
+      element6.innerText = text;
+     
+      let muzykaZaznaczona = document.getElementById("muzyka").checked;
+     let sportZaznaczona = document.getElementById("sport").checked;
+     let mototryzacjaZaznaczona = document.getElementById("motoryzacja").checked;
+     let taniecZaznaczona = document.getElementById("taniec").checked;
+     let gryZaznaczona = document.getElementById("gry").checked;
+     let inneZaznaczona = document.getElementById("inne").checked;
+     let elementWyjsciowy = document.getElementById("z");
+
+     text = "Twoje zainteresowania: ";
+
+     if (muzykaZaznaczona)
+     {
+          text += "muzyka, ";
+     }
+     if (sportZaznaczona) 
+     {
+          text += "sport, ";
+     }
+     if (mototryzacjaZaznaczona)
+     {
+
+           text += "mototryzacja, ";
+     }
+     if (gryZaznaczona) 
+     {
+          text += "gry komputerowe, ";
+     }
+     if (taniecZaznaczona) 
+     {
+          text += "taniec, ";
+     }
+     if (inneZaznaczona) 
+     {
+          text += `${podajInne.value}`;
+     }
+     elementWyjsciowy.innerHTML = text
+     
+     const value7 = document.getElementById("uwagi").value;
+     const element7 = document.getElementById("t");
+     element7.innerText = `Twoje uwagi: ${value7}`;
+     
+     const zgoda = document.getElementById("zgoda");
+     if (zgoda.checked)
+     {
+          const element8 = document.getElementById("r");
+          element8.innerText = `Zgoda na przetwarzanie danych: Tak`;
+     }
+     else
+     {
+          const element8 = document.getElementById("r");
+          element8.innerText = `Zgoda na przetwarzanie danych: Nie`;
+     }
+      
+      
+
+     alert("Brawo! Wypełniłeś/aś formularz")
+    }
+    document.querySelector("#wyslij").addEventListener("click", wyslij);
+</script>
+            
+   
+
+    
+
+</body></html>
